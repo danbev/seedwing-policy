@@ -1,0 +1,13 @@
+{
+  "kind": "Pipeline",
+  "metadata": {
+    "labels": {
+      "pipelines.openshift.io/runtime": "fbc"
+    },
+    "name": "fbc"
+  },
+  "spec": {
+    "finally": [],
+    "tasks": []
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "kind": "Pipeline",
+  "metadata": {
+    "labels": {
+      "pipelines.openshift.io/runtime": "fbc"
+    },
+    "name": "fbc"
+  },
+  "spec": {
+    "finally": [],
+    "tasks": [
+      {
+        "taskRef": {
+          "bundle": "registry.img/spam@sha256:4e388ab32b10dc8dbc7e28144f552830adc74787c1e2c0824032078a79f227fb",
+          "kind": "Task",
+          "name": "buildah"
+        }
+      },
+      {
+        "taskRef": {
+          "bundle": "registry.img/spam@sha256:4e388ab32b10dc8dbc7e28144f552830adc74787c1e2c0824032078a79f227fb",
+          "kind": "Task",
+          "name": "git-clone"
+        }
+      },
+      {
+        "params": [
+          {
+            "name": "POLICY_NAMESPACE",
+            "value": "optional_checks"
+          }
+        ],
+        "taskRef": {
+          "bundle": "registry.img/spam@sha256:4e388ab32b10dc8dbc7e28144f552830adc74787c1e2c0824032078a79f227fb",
+          "kind": "Task",
+          "name": "sanity-label-check"
+        }
+      },
+      {
+        "params": [
+          {
+            "name": "POLICY_NAMESPACE",
+            "value": "required_checks"
+          }
+        ],
+        "taskRef": {
+          "bundle": "registry.img/spam@sha256:4e388ab32b10dc8dbc7e28144f552830adc74787c1e2c0824032078a79f227fb",
+          "kind": "Task",
+          "name": "sanity-label-check"
+        }
+      }
+    ]
+  }
+}
