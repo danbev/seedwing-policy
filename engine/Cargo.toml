@@ -78,3 +78,6 @@ env_logger = { version = "0.10.0", default-features = false }
 [[bench]]
 name = "engine"
 harness = false
+
+[lib]
+crate-type = ["cdylib", "rlib"]
