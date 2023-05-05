@@ -1,0 +1,23 @@
+{
+  "name": "js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.mjs",
+  "config": {
+    "wasm_file": "../seedwing_policy-engine-component.wasm"
+  },
+  "scripts": {
+    "bindings": "npx jco transpile $npm_package_config_wasm_file -o dist -w",
+    "inspect-wit": "npx jco wit $npm_package_config_wasm_file",
+    "inspect-wasm": "npx jco wit $npm_package_config_wasm_file",
+    "print-wat": "npx jco print $npm_package_config_wasm_file | rustfilt",
+    "example": "node index.mjs"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@bytecodealliance/jco": "^0.5.5",
+    "@bytecodealliance/preview2-shim": "^0.0.7"
+  },
+  "type": "module"
+}
