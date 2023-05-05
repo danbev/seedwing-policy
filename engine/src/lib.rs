@@ -1,7 +1,9 @@
 #![doc = include_str!("../../README.md")]
 //#![deny(warnings)]
 //#![warn(missing_docs)]
+wit_bindgen::generate!("component");
 
+#[cfg(not(target_arch = "wasm32"))]
 pub mod client;
 mod core;
 pub mod data;
@@ -25,3 +27,13 @@ pub const fn version() -> &'static str {
         VERSION
     }
 }
+
+struct Something;
+
+impl Component for Something {
+    fn something(s: String) -> String {
+        format!("something was passed: {s}")
+    }
+}
+
+export_component!(Something);
