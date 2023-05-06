@@ -58,7 +58,7 @@ prometheus = { version = "0.13.3", optional = true }
 [target.'cfg(not(target_arch = "wasm32"))'.dependencies]
 home = "0.5.4"
 #reqwest = { version = "0.11.14", features = ["json"] }
-reqwest = { path = "/home/danielbevenius/work/rust/reqwest", features = ["json", "wit-bindgen"] }
+reqwest = { path = "/home/danielbevenius/work/rust/reqwest", features = ["json"] }
 guac-rs = { git = "https://github.com/dejanb/guac-rs.git", rev = "67a70e98ffaa17200d256e1afc5c88756b56d5e2" }
 
 [target.'cfg(all(target_arch = "wasm32", target_os = "wasi"))'.dependencies]

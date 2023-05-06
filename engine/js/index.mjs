@@ -1,3 +1,3 @@
-import { something } from './dist/seedwing_policy-engine-component.js';
+import { version  } from './dist/seedwing_policy-engine-component.js';
 
-console.log(something("bajja"));
+console.log(`Seedwing Policy Engine version: ${version()}`);

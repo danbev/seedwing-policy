@@ -1,7 +1,7 @@
 #![doc = include_str!("../../README.md")]
 //#![deny(warnings)]
 //#![warn(missing_docs)]
-wit_bindgen::generate!("component");
+wit_bindgen::generate!("engine");
 
 #[cfg(not(target_arch = "wasm32"))]
 pub mod client;
@@ -28,12 +28,12 @@ pub const fn version() -> &'static str {
     }
 }
 
-struct Something;
+struct Core;
 
-impl Component for Something {
-    fn something(s: String) -> String {
-        format!("something was passed: {s}")
+impl Engine for Core {
+    fn version() -> String {
+        crate::version().to_string()
     }
 }
 
-export_component!(Something);
+export_engine!(Core);

@@ -1,3 +1,0 @@
-default world engine {
-  export something: func(s: string) -> string
-}
