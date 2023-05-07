@@ -1,7 +1,8 @@
 #![doc = include_str!("../../README.md")]
 //#![deny(warnings)]
 //#![warn(missing_docs)]
-wit_bindgen::generate!("engine");
+#[cfg(all(target_arch = "wasm32", target_os = "wasi"))]
+mod wit;
 
 #[cfg(not(target_arch = "wasm32"))]
 pub mod client;
@@ -27,22 +28,3 @@ pub const fn version() -> &'static str {
         VERSION
     }
 }
-
-struct Core;
-
-/*
-impl Wit for Core {
-    fn version() -> String {
-        crate::version().to_string()
-    }
-}
-*/
-
-use crate::wit::Wit;
-impl Wit for Core {
-    fn version() -> String {
-        crate::version().to_string()
-    }
-}
-
-export_engine!(Core);
