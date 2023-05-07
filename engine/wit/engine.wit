@@ -1,3 +1,8 @@
 default world engine {
-  export version: func() -> string
+  export wit: self.wit
+  //export version: func() -> string
+}
+
+interface wit {
+  version: func() -> string
 }

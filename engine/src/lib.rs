@@ -30,7 +30,16 @@ pub const fn version() -> &'static str {
 
 struct Core;
 
-impl Engine for Core {
+/*
+impl Wit for Core {
+    fn version() -> String {
+        crate::version().to_string()
+    }
+}
+*/
+
+use crate::wit::Wit;
+impl Wit for Core {
     fn version() -> String {
         crate::version().to_string()
     }
