@@ -63,6 +63,7 @@ guac-rs = { git = "https://github.com/dejanb/guac-rs.git", rev = "67a70e98ffaa17
 
 [target.'cfg(all(target_arch = "wasm32", target_os = "wasi"))'.dependencies]
 wit-bindgen = { path = "/home/danielbevenius/work/wasm/wit-bindgen/crates/guest-rust", version = "0.6.0" }
+futures = "0.3"
 
 [features]
 default = ["sigstore", "monitor", "showcase", "intoto"]

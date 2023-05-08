@@ -1,7 +1,22 @@
+/// Sweedwing Policy Engine WebAssembly Interface Types (wit)
 default world engine {
   export engine: self.wit
 }
 
 interface wit {
+  /// Returns the version of the Policy Engine.
   version: func() -> string
+
+  /// Runs a policy.
+  ///
+  /// policies: additional policies to be include/available to the policy rules.
+  /// data: this is a list of data that will be available to the policies .
+  /// policy: the policy containing the patterns to be evaluated.
+  /// name: the name of the patter to evaluate.
+  /// input: the input to be evaluated.
+  eval: func(policies: list<string>,
+            data: list<string>,
+            policy: string,
+            name: string,
+            input: string,) -> string
 }
